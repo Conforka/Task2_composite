@@ -1,0 +1,7 @@
+07:03:13.007 [main] INFO  horevich.compositetask.reader.impl.BaseTextReaderImpl - Read 10 lines from file textfile/file.txt
+07:11:17.895 [main] INFO  horevich.compositetask.reader.impl.BaseTextReaderImpl - Read 10 lines from file textfile/file.txt
+07:27:12.515 [main] INFO  horevich.compositetask.reader.impl.BaseTextReaderImpl - Read 10 lines from file textfile/file.txt
+07:27:42.206 [main] INFO  horevich.compositetask.reader.impl.BaseTextReaderImpl - Read 10 lines from file textfile/file.txt
+07:35:12.168 [main] INFO  horevich.compositetask.reader.impl.BaseTextReaderImpl - Read 10 lines from file textfile/file.txt
+07:39:51.743 [main] INFO  horevich.compositetask.reader.impl.BaseTextReaderImpl - Read 10 lines from file textfile/file.txt
+07:41:38.517 [main] INFO  horevich.compositetask.reader.impl.BaseTextReaderImpl - Read 10 lines from file textfile/file.txt

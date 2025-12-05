@@ -1,5 +1,4 @@
-package by.horevich.compositetask.textcomponents.impl;
-import by.horevich.compositetask.textcomponents.TextComponent;
+package by.horevich.compositetask.decomposite;
 
 public class CharacterLeaf implements TextComponent {
 
@@ -16,7 +15,7 @@ public class CharacterLeaf implements TextComponent {
   }
 
   @Override
-  public String textrebuild() {
+  public String textRebuild() {
     return String.valueOf(character);
   }
 

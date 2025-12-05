@@ -1,17 +1,17 @@
-package by.horevich.compositetask.chainparser;
+package by.horevich.compositetask.parser;
 
-import by.horevich.compositetask.textcomponents.impl.TextComposite;
+import by.horevich.compositetask.decomposite.TextComposite;
 
 public abstract class AbstractTextHandler {
-  protected AbstractTextHandler nextsuccessor;
+  protected AbstractTextHandler nextSuccessor;
 
   public abstract void parse(String text, TextComposite composite);
 
   public void setSuccessor(AbstractTextHandler successor) {
-    this.nextsuccessor = successor;
+    this.nextSuccessor = successor;
   }
   public AbstractTextHandler getSuccessor() {
-    return nextsuccessor;
+    return nextSuccessor;
   }
 
 }
