@@ -6,7 +6,6 @@ import by.horevich.compositetask.decomposite.CharacterLeaf;
 
 public class LexemeHandler extends AbstractTextHandler {
 
-  private static final String WORD_REGEX = "[A-Za-z0-9]+";
 
   @Override
   public void parse(String text, TextComposite parent) {

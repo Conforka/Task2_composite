@@ -9,38 +9,41 @@ import java.util.List;
 
 public class LexemeSwapService {
 
-  public void swapFirstAndLastLexemes(TextComposite text) {
-    if (text.getType() != TextType.TEXT) return;
-
+  public void swapInAllSentences(TextComposite text) {
     for (TextComponent paragraphComp : text.getComponents()) {
-      if (!(paragraphComp instanceof TextComposite)) continue;
       TextComposite paragraph = (TextComposite) paragraphComp;
-      if (paragraph.getType() != TextType.PARAGRAPH) continue;
 
       for (TextComponent sentenceComp : paragraph.getComponents()) {
-        if (!(sentenceComp instanceof TextComposite)) continue;
         TextComposite sentence = (TextComposite) sentenceComp;
-        if (sentence.getType() != TextType.SENTENCE) continue;
+        swapLexemesInSentence(sentence);
+      }
+    }
+  }
 
-        List<TextComposite> lexemes = new ArrayList<>();
-        for (TextComponent comp : sentence.getComponents()) {
-          if (comp instanceof TextComposite && ((TextComposite) comp).getType() == TextType.LEXEME) {
-            lexemes.add((TextComposite) comp);
-          }
-        }
+  private void swapLexemesInSentence(TextComposite sentence) {
 
-        if (lexemes.size() > 1) {
-          TextComposite first = lexemes.get(0);
-          TextComposite last = lexemes.get(lexemes.size() - 1);
+    List<TextComposite> wordLexemes = new ArrayList<>();
 
-          List<TextComponent> sentenceComponents = sentence.getComponents();
-          int firstIndex = sentenceComponents.indexOf(first);
-          int lastIndex = sentenceComponents.indexOf(last);
-
-          sentenceComponents.set(firstIndex, last);
-          sentenceComponents.set(lastIndex, first);
+    for (TextComponent component : sentence.getComponents()) {
+      if (component instanceof TextComposite lexeme && lexeme.getType() == TextType.LEXEME) {
+        if (!lexeme.textRebuild().isBlank()) {
+          wordLexemes.add(lexeme);
         }
       }
     }
+
+    if (wordLexemes.size() < 2) {
+      return;
+    }
+
+    TextComposite first = wordLexemes.get(0);
+    TextComposite last = wordLexemes.get(wordLexemes.size() - 1);
+
+    List<TextComponent> components = sentence.getComponents();
+    int firstIndex = components.indexOf(first);
+    int lastIndex = components.indexOf(last);
+
+    components.set(firstIndex, last);
+    components.set(lastIndex, first);
   }
 }
